@@ -1,22 +1,34 @@
-#define the base class player
-class player:
-  def play(self):
-    print("the player is playing cricket.")
+# Python program to create Bankaccount class
+# with both a deposit() and a withdraw() function
+class Bank_Account:
 
-#define the derived class Batsman
-class batsman(player):
-  def play(self):
-    print("the batsman is batting.")
-    
-#define the derived class Bowler
-class bowler(player):
-  def play(self):
-      print("the bowler is bowling.")
+  def __init__(self):
+    self.balance = 0
+    print("Hello!!! Welcome to the Deposit & Withdrawal Machine")
 
-#create objects of Batsman and Bowler classes
-batsman = batsman()
-bowler = bowler()
+  def deposit(self):
+    amount = float(input("Enter amount to be Deposited: "))
+    self.balance += amount
+    print("\n Amount Deposited:", amount)
 
-#call the play() method for each object
-batsman.play()
-bowler.play()
+  def withdraw(self):
+    amount = float(input("Enter amount to be Withdrawn: "))
+    if self.balance >= amount:
+      self.balance -= amount
+      print("\n You Withdrew:", amount)
+    else:
+      print("\n Insufficient balance  ")
+
+  def display(self):
+    print("\n Net Available Balance=", self.balance)
+
+
+# Driver code
+
+# creating an object of class
+s = Bank_Account()
+
+# Calling functions with that class object
+s.deposit()
+s.withdraw()
+s.display()
